@@ -8,11 +8,12 @@ use warnings;
 my @d1 = qw/one two three/;
 
 my %hd = (a => "one", b => "two", c => "three");
+my $name = "TestMod";
 
 # constructor
 sub new {
 	my $class = shift;
-	my $self = [\@d1, \%hd];
+	my $self = [\@d1, \%hd, \$name];
 	bless $self, $class;
 	return $self;
 }
@@ -35,5 +36,10 @@ sub addmorea {
 	$self->adda(@_);
 }
 
+# get name
+sub getname {
+	my $self = shift;
+	return \$name;
+}
 # this is the last line of the module and must be here
 1;

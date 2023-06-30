@@ -15,6 +15,15 @@ sub phash {
 	}
 }
 
+print "name from ref is : ${$tobject->[2]}\n";
+print "name from method is : ${$tobject->getname()}\n";
+
+# make new name
+my $newname = "new TestMode";
+
+$tobject->[2] = \$newname;
+print "new name from method is : ${$tobject->getname()}\n";
+print "new name from ref is : ${$tobject->[2]}\n";
 
 print "array using geta: @{$tobject->geta()}\n";
 
