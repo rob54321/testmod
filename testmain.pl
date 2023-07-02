@@ -15,30 +15,38 @@ sub phash {
 	}
 }
 
-print "name from ref is : ${$tobject->[2]}\n";
-print "name from method is : ${$tobject->getname()}\n";
+# get name
+my $mname = ${$tobject->[2]};
+print "name : $mname\n";
+
+my $getname = $tobject->getname();
+print "name from method is : $getname\n";
 
 # make new name
-my $newname = "new TestMode";
+my $newname = "this should change to new TestMode";
 
-$tobject->[2] = \$newname;
-print "new name from method is : ${$tobject->getname()}\n";
-print "new name from ref is : ${$tobject->[2]}\n";
+${$tobject->[2]} = $newname;
 
-print "array using geta: @{$tobject->geta()}\n";
+print "new name from method tobject->getname() is : " . $tobject->getname() . "\n";
+print "new name \${\$tobject->[2]} is : " . ${$tobject->[2]} . "\n";
 
-print "ref: $tobject->[0]\n";
+#print "array using geta: @{$tobject->geta()}\n";
 
-print "array from ref: @{$tobject->[0]}\n";
+#print "ref: $tobject->[0]\n";
+
+#print "array from ref: @{$tobject->[0]}\n";
 
 # add some to array
-$tobject->adda(qw/four five six seven/);
-print "array using geta: @{$tobject->geta()}\n";
-print "array from ref: @{$tobject->[0]}\n";
+#$tobject->adda(qw/four five six seven/);
+#print "array using geta: @{$tobject->geta()}\n";
+#print "array from ref: @{$tobject->[0]}\n";
 
 # print the hash
-phash;
+# phash;
 
 # add even more to array
-$tobject->addmorea(qw/eight nine ten eleven/);
-print "array using geta: @{$tobject->geta()}\n";
+#$tobject->addmorea(qw/eight nine ten eleven/);
+#print "array using geta: @{$tobject->geta()}\n";
+
+# get name2
+print "namep from method \$tobject->getnamep() : " . $tobject->getnamep() . "\n";
