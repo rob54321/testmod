@@ -16,19 +16,15 @@ sub phash {
 }
 
 # get name
-my $mname = ${$tobject->[2]};
-print "name : $mname\n";
-
-my $getname = $tobject->getname();
-print "name from method is : $getname\n";
+print "name from method is : $tobject->getname\n";
 
 # make new name
 my $newname = "this should change to new TestMode";
 
-${$tobject->[2]} = $newname;
+$tobject->setname($newname);
 
 print "new name from method tobject->getname() is : " . $tobject->getname() . "\n";
-print "new name \${\$tobject->[2]} is : " . ${$tobject->[2]} . "\n";
+
 
 #print "array using geta: @{$tobject->geta()}\n";
 
@@ -48,5 +44,3 @@ print "new name \${\$tobject->[2]} is : " . ${$tobject->[2]} . "\n";
 #$tobject->addmorea(qw/eight nine ten eleven/);
 #print "array using geta: @{$tobject->geta()}\n";
 
-# get name2
-print "namep from method \$tobject->getnamep() : " . $tobject->getnamep() . "\n";

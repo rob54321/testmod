@@ -9,12 +9,11 @@ my @d1 = qw/one two three/;
 
 my %hd = (a => "one", b => "two", c => "three");
 my $name = "TestMod";
-my $namep = "private data";
 
 # constructor
 sub new {
 	my $class = shift;
-	my $self = [\@d1, \%hd, \$name];
+	my $self = [\@d1, \%hd];
 	bless $self, $class;
 	return $self;
 }
@@ -31,11 +30,6 @@ sub geta {
 	return \@d1;
 }
 
-# sub to get name2 private data
-sub getnamep {
-	my $self = shift;
-	return $namep;
-}
 
 # sub to add even more to array
 sub addmorea {
@@ -47,6 +41,12 @@ sub addmorea {
 sub getname {
 	my $self = shift;
 	return $name;
+}
+# set name
+sub setname {
+	my $self = shift;
+	$name = shift;
+	return;
 }
 # this is the last line of the module and must be here
 1;
